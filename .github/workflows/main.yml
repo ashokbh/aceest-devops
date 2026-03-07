@@ -36,7 +36,12 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v4
-      - run: docker build -t aceest-fitness:latest .
-      - run: |
-          docker r          docker r       -p 5000:5000 aceest-fitness:latest
-                                    ail htt      ca                             ocker              est
+      - name: Build Docker image
+        run: docker build -t aceest-fitness:latest .
+      - name: Run container health check
+        run: |
+          docker run -d --name aceest_test -p 5000:5000 aceest-fitness:latest
+          sleep 5
+          curl --fail http://localhost:5000/health
+          docker stop aceest_test
+          docker rm aceest_test
