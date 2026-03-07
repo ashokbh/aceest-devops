@@ -1,0 +1,13 @@
+# ACEest Fitness & Gym - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+flask==3.1.2
+werkzeug==3.1.5        # Flask's WSGI toolkit (auto-installed with Flask)
+
+# Testing
+pytest==8.2.2
+pytest-cov==5.0.0      # Coverage reporting for pytest
+
+# Linting (used in CI/CD pipeline)
+flake8==7.1.1
